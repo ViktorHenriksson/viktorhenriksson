@@ -1,0 +1,9 @@
+# Site settings
+title: Portfolio
+author:
+  name: Viktor Henriksson
+  email: viktorhenriksson@msn.com
+description: "My portfolio"
+
+# Build settings
+remote_theme: jekyll/minima
