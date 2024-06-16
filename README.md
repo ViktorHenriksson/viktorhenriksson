@@ -22,3 +22,7 @@ Master thesis concerned fraud prevention policies and was carried out using topi
 
 ### Cybersecurity courses
 Two courses in cybersecurity. 
+
+## Projects
+### Topic modelling of fraud prevention policies (link)
+For my master thesis, I examined a larger number of documents regarding fraud prevention using topic modelling. It showcases my ability to code in Python, use Natural Language Processing, and data visualisation using both Python and Tableau. 
