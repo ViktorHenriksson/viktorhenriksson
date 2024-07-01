@@ -8,4 +8,4 @@ description: >
   Analyst with experience in financial crime prevention and criminology, passionate to delve into data analytics with a social scientific perspective.
 
 # Build settings
-remote_theme: jekyll/minimal
+theme: jekyll-theme-minimal
