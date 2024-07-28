@@ -64,6 +64,7 @@ WHERE row_no <= 5;
 <br>
 
 Let's look closer at the two highest fraudulent transactions of 2022. <br>
+
 | Timestamp                 | Amount    | Category | Age | Anomaly score |
 |---------------------------|-----------|----------|-----| ------------- |
 | 2022-03-28 16:28:56.813   | 18,960.91 | Food     | 22  | 0,88          |
