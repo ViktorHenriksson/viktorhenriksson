@@ -33,4 +33,4 @@ Skills showcased
 ## Dataset 
 ![Entity Relationship Diagram](erdv1.drawio.png)
 The dataset used for all my projects comes from Aditya Goyal on [Kaggle](https://www.kaggle.com/datasets/goyaladi/fraud-detection-dataset/data). 
-It has been randomly populated using a modified Python script that was included in the Kaggle files. The script uses the Faker module to randomise names, places, addresses etc.
+It has been randomly populated using a modified Python script that was included in the Kaggle files. The [script](creating_random_database) uses the Faker module to randomise names, places, addresses etc.
