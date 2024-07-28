@@ -72,7 +72,9 @@ Let's look closer at the two highest fraudulent transactions of 2022.
 
 The 21 000 transaction is belonging to travel and an older person, which usually is the case for fraud. The other transaction is interesting, as it is a young person and the category is fraud. This might be a case of a new fraud modus, and necessitates a closer look. 
 
-
-
+- CASE
+- subqueries
+- maybe UNION
+- Tableau visualisation
 
 
