@@ -1,0 +1,91 @@
+import pandas as pd
+import numpy as np
+from faker import Faker
+from sqlalchemy import create_engine
+
+# Initialize Faker
+fake = Faker()
+
+# Database connection details
+server = 'server'
+database = 'fraud_detection'
+
+# Create a database connection
+# For Windows Authentication
+engine = create_engine(f'mssql+pyodbc://{server}/{database}?driver=ODBC+Driver+17+for+SQL+Server')
+
+# Generate Transaction Data
+num_records = 10000
+transaction_records = pd.DataFrame({
+    'TransactionID': range(1, num_records + 1),
+    'Amount': np.random.uniform(10, 100, num_records),
+    'CustomerID': np.random.randint(1001, 2001, num_records)  # Customers with IDs between 1001 and 2000
+})
+
+transaction_metadata = pd.DataFrame({
+    'TransactionID': range(1, num_records + 1),
+    'Timestamp': pd.date_range('2022-01-01', periods=num_records, freq='15min'),  # Randomly spread over 2 years
+    'MerchantID': np.random.randint(2001, 3001, num_records)  # Merchants with IDs between 2001 and 2501
+})
+
+# Generate Customer Profiles
+num_customers = 1000
+customer_data = pd.DataFrame({
+    'CustomerID': range(1001, 2001),
+    'Name': [fake.name() for _ in range(num_customers)],
+    'Age': np.random.randint(18, 65, num_customers),
+    'Address': [fake.address().replace('\n', ', ') for _ in range(num_customers)]
+})
+
+account_activity = pd.DataFrame({
+    'CustomerID': range(1001, 2001),
+    'AccountBalance': np.random.uniform(1000, 10000, num_customers),
+    'LastLogin': pd.date_range('2022-01-01', periods=num_customers, freq='2D')  # Every 2 days
+})
+
+# Generate Fraudulent Patterns
+fraud_indicators = pd.DataFrame({
+    'TransactionID': range(1, num_records + 1),
+    'FraudIndicator': np.random.choice([0, 1], num_records, p=[0.95, 0.05])
+})
+
+suspicious_activity = pd.DataFrame({
+    'CustomerID': range(1001, 2001),
+    'SuspiciousFlag': np.random.choice([0, 1], num_customers, p=[0.98, 0.02])
+})
+
+# Generate Transaction Amounts
+amount_data = pd.DataFrame({
+    'TransactionID': range(1, num_records + 1),
+    'TransactionAmount': np.random.uniform(10, 100, num_records)
+})
+
+anomaly_scores = pd.DataFrame({
+    'TransactionID': range(1, num_records + 1),
+    'AnomalyScore': np.random.uniform(0, 1, num_records)
+})
+
+# Generate Merchant Information
+num_merchants = 1000
+merchant_data = pd.DataFrame({
+    'MerchantID': range(2001, 3001),
+    'MerchantName': [fake.company() for _ in range(num_merchants)],
+    'Location': [fake.city() for _ in range(num_merchants)]
+})
+
+transaction_category_labels = pd.DataFrame({
+    'TransactionID': range(1, num_records + 1),
+    'Category': np.random.choice(['Food', 'Retail', 'Travel', 'Online', 'Other'], num_records)
+})
+
+# Save DataFrames to SQL Server
+transaction_records.to_sql('transaction_records', engine, if_exists='replace', index=False)
+transaction_metadata.to_sql('transaction_metadata', engine, if_exists='replace', index=False)
+customer_data.to_sql('customer_data', engine, if_exists='replace', index=False)
+account_activity.to_sql('account_activity', engine, if_exists='replace', index=False)
+fraud_indicators.to_sql('fraud_indicators', engine, if_exists='replace', index=False)
+suspicious_activity.to_sql('suspicious_activity', engine, if_exists='replace', index=False)
+amount_data.to_sql('amount_data', engine, if_exists='replace', index=False)
+anomaly_scores.to_sql('anomaly_scores', engine, if_exists='replace', index=False)
+merchant_data.to_sql('merchant_data', engine, if_exists='replace', index=False)
+transaction_category_labels.to_sql('transaction_category_labels', engine, if_exists='replace', index=False)
