@@ -31,13 +31,16 @@ JOIN
 
 ```
 <br>
-| Year | Average transaction amount | Total transactions | Number of fraud cases | Percentage of fraud cases | Total amount lost in fraud | Average amount lost in fraud |
-| -------- | ------- | -------- | ------- | -------- | ------- | ------- |
-| 2022	| 5007	| 1006,11	| 261	| 5.21	| 217517,32 | 833,4 |
-| 2023	| 4993	| 1068,53	| 248	| 4.97	| 157403,4 | 634,69 |
+
+| Year | Average Transaction Amount | Total Transactions | Number of Fraud Cases | Percentage of Fraud Cases | Total Amount Lost in Fraud | Average Amount Lost in Fraud |
+|------|----------------------------|--------------------|------------------------|----------------------------|----------------------------|------------------------------|
+| 2022 | 5007                       | 1006.11            | 261                    | 5.21%                      | 217,517.32                 | 833.40                       |
+| 2023 | 4993                       | 1068.53            | 248                    | 4.97%                      | 157,403.40                 | 634.69                       |
+
 <br>
 2022 had around 39 % more monetary value lost to fraud compared to 2023. The fraud cases themselves did not drop that much, which infers that the monetary value of the fraud cases were much higher than the ones in 2023. This is also seen in the average amount. <br>
 If we look closer to highest amounts lost, we see that 2022 have two amounts that are clearly higher than 2023:s cases.
+
 ```
 SELECT year, amount
 FROM (SELECT YEAR(timestamp) year, amount, ROW_NUMBER() OVER (PARTITION BY YEAR(timestamp) ORDER BY amount DESC) row_no
@@ -47,7 +50,9 @@ JOIN transaction_records t_r ON t_r.TransactionID = t_m.TransactionID
 WHERE  f_i.FraudIndicator = 1) t1
 WHERE row_no <= 5;
 ```
+
 <br>
+
 | 2022 |	2023 |
 | ---- | ---- |
 | 21128,4  | 15748,35 |
@@ -55,7 +60,9 @@ WHERE row_no <= 5;
 | 10463,82 | 9988,9 |
 | 10418,43 | 7583,59 |
 | 6005,8 | 5388,52 |
+
 <br>
+
 Let's look closer at the two highest fraudulent transactions of 2022. <br>
 | Timestamp                 | Amount    | Category | Age | Anomaly score |
 |---------------------------|-----------|----------|-----| ------------- |
