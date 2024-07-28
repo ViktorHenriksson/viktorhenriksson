@@ -9,7 +9,7 @@ Skills showcased
 - Data wrangling and transformation
 - Visualisations using Tableau 
 
-[Fraud Database](link) <br>
+[Fraud Database](./SQL_project.md) <br>
 Skills showcased
 - Database Design and Schema Creation
 - Data import, cleaning, and transformation.
