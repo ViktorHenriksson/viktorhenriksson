@@ -42,7 +42,9 @@ def compute_coherence_values(dictionary, corpus, texts, limit, start, step):
 
     return model_list, coherence_values, perplexity_values, top_words_list, topic_labels_list
 ```
-The number of topics after the analysis was settled on 6.
+The number of topics after the analysis was settled on 6. <br>
+
+
 | Topic 1                                | Topic 2                           | Topic 3                               |
 |----------------------------------------|-----------------------------------|---------------------------------------|
 | **Rules and Regulations on an EU-level** | **Information-based Fraud Prevention** | **Banks’ Responsibilities in Fraud Prevention** |
@@ -73,8 +75,10 @@ The number of topics after the analysis was settled on 6.
 
  
 ### Heat map
-
+![Heatmap of topics by importance in each sector](document_topic_dist_heatmap.png)
+This heatmap shows how important each document is for each topic.
 ![Heatmap of topics by importance in each sector](heatmap%20sector%20topic%20dist.png)
+This heatmap shows how important each document is for each sector.
 ### t-SNE
 ![t-SNE clustering of documents and topics](tsne_cluster.png)
 T-SNE is an algorithm that can display higher dimension data on a lower scale, which makes it popular for visualisation as it can visualise how e.g. topics are clustered together in a 2D-plane (Sharma and Sharma, 2023). This cluster map (Figure 10) shows the distribution of documents and topics. Each colour is a topic, and each shape is a sector. The topics are generally clustered together, with some overlap between topics 1 and 5, as well as topics 2 and 3. Topic 6 has an outlier from the governmental sector in the lower left corner. Topics 5, 6, and 1 seem to be closer together, while topics 2 and 3 are closer. Topic 4 does not appear in the map, which corresponds to the lower likelihood of it appearing according to Figure 7 earlier. Topic 3 is dominated by the banking sector, but no inferences can be drawn from the other topics because of the skewed sampling. Topics 2, 3 and 5 seem to have the most spread, while the other topics are more grouped. 
