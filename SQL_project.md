@@ -1,5 +1,5 @@
 ## SQL queries in fraud database
-The SQL code for creating the database can be found [here](./creating_fraud_detection_db.sql).
+The SQL code for creating the database can be found [here](https://github.com/ViktorHenriksson/viktorhenriksson/blob/5b5bd039482ba507088416e5f8e6b809438a25cb/creating_fraud_detection_db.sql).
 
 ``` sql
 WITH transaction_total AS (
