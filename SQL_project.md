@@ -2,7 +2,7 @@
 
 [Back to main page](./index.md)
 
-```
+``` sql
 WITH transaction_total AS (
 	SELECT YEAR(timestamp) year, CAST(COUNT(*) AS DECIMAL) total_transactions, 
 	   ROUND(AVG(t_r.Amount), 2) average_transaction_amount
@@ -41,7 +41,7 @@ JOIN
 2022 had around 39 % more monetary value lost to fraud compared to 2023. The fraud cases themselves did not drop that much, which infers that the monetary value of the fraud cases were much higher than the ones in 2023. This is also seen in the average amount. <br>
 If we look closer to highest amounts lost, we see that 2022 have two amounts that are clearly higher than 2023:s cases.
 
-```
+``` sql
 SELECT year, amount
 FROM (SELECT YEAR(timestamp) year, amount, ROW_NUMBER() OVER (PARTITION BY YEAR(timestamp) ORDER BY amount DESC) row_no
 FROM transaction_metadata t_m
@@ -63,7 +63,7 @@ WHERE row_no <= 5;
 
 <br>
 
-Let's look closer at the two highest fraudulent transactions of 2022. <br>
+Let's look closer at the two highest fraudulent transactions of 2022. 
 
 | Timestamp                 | Amount    | Category | Age | Anomaly score |
 |---------------------------|-----------|----------|-----| ------------- |
