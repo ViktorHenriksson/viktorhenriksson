@@ -1,6 +1,5 @@
 ## SQL queries in fraud database
-
-[Back to main page](./index.md)
+The SQL code for creating the database can be found [here](./creating_fraud_detection_db.sql).
 
 ``` sql
 WITH transaction_total AS (
@@ -72,9 +71,47 @@ Let's look closer at the two highest fraudulent transactions of 2022.
 
 The 21 000 transaction is belonging to travel and an older person, which usually is the case for fraud. The other transaction is interesting, as it is a young person and the category is fraud. This might be a case of a new fraud modus, and necessitates a closer look. 
 
-- CASE
-- subqueries
+This query shows which age groups are more likely to get scammed. 
+
+``` sql
+WITH t1 AS (SELECT t_r.CustomerID AS customer_id, t_r.amount AS amount
+	FROM transaction_records t_r
+	JOIN fraud_indicators f_i ON f_i.TransactionID =t_r.TransactionID
+	WHERE f_i.FraudIndicator = 1),
+	t2 AS (SELECT customerid, 
+	CASE 
+	    WHEN age BETWEEN 18 AND 25 THEN '18-25'
+        WHEN age BETWEEN 26 AND 35 THEN '26-35'
+        WHEN age BETWEEN 36 AND 45 THEN '36-45'
+        WHEN age BETWEEN 46 AND 55 THEN '46-55'
+        WHEN age BETWEEN 56 AND 65 THEN '56-65'
+        WHEN age BETWEEN 65 AND 75 THEN '66-75'
+		WHEN age BETWEEN 76 AND 85 THEN '76-85'
+		WHEN age BETWEEN 86 AND 95 THEN '86-95'
+        ELSE 'Unknown'
+    	END AS age_groups
+		FROM customer_data)
+
+SELECT t2.age_groups, SUM(t1.amount) AS amount_lost, COUNT(*) AS num_of_fraud
+FROM t1
+JOIN t2 ON t1.customer_id = t2.CustomerID
+GROUP BY t2.age_groups
+ORDER BY SUM(t1.amount);
+```
+
+| Age Group | Amount Lost | Number of Fraud Cases |
+|-----------|-------------|-----------------------|
+| 76-85     | 72,828.45   | 69                    |
+| 18-25     | 66,192.36   | 49                    |
+| 36-45     | 66,006.92   | 68                    |
+| 46-55     | 56,036.41   | 90                    |
+| 26-35     | 45,295.63   | 74                    |
+| 66-75     | 39,180.34   | 83                    |
+| 56-65     | 29,380.61   | 76                    |
+
+The age groups 76-85 and 18-25 correlates with the highest amount of lost monetary value of 2022, as shown before. However, for amount of fraud cases, 76-85 is the third lowest and 18-25 is the lowest victimised, which infers that when these age groups get scammed it is by higher amounts while other age groups get scammed more times with lower amounts.
+
 - maybe UNION
 - Tableau visualisation
 
-
+[Back to main page](./index.md)
