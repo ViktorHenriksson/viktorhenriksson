@@ -1,4 +1,5 @@
 ## SQL queries in fraud database
+This project intends to explore the fraud database and find out which year and month were the most affected by scams and what the most severe fraudulent transactions looks like.
 The SQL code for creating the database can be found [here](https://github.com/ViktorHenriksson/viktorhenriksson/blob/5b5bd039482ba507088416e5f8e6b809438a25cb/creating_fraud_detection_db.sql).
 
 ``` sql
@@ -38,7 +39,12 @@ JOIN
 
 <br>
 2022 had around 39 % more monetary value lost to fraud compared to 2023. The fraud cases themselves did not drop that much, which infers that the monetary value of the fraud cases were much higher than the ones in 2023. This is also seen in the average amount. <br>
+
+![Monetary value lost per month and year](amount%20lost%20fraud.png)
+
 If we look closer to highest amounts lost, we see that 2022 have two amounts that are clearly higher than 2023:s cases.
+
+![Most amount of fraud cases per month and year](fraudulent%20transactions%20per%20month.png)
 
 ``` sql
 SELECT year, amount
