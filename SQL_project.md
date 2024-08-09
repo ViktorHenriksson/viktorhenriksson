@@ -117,7 +117,4 @@ ORDER BY SUM(t1.amount);
 
 The age groups 76-85 and 18-25 correlates with the highest amount of lost monetary value of 2022, as shown before. However, for amount of fraud cases, 76-85 is the third lowest and 18-25 is the lowest victimised, which infers that when these age groups get scammed it is by higher amounts while other age groups get scammed more times with lower amounts.
 
-- maybe UNION
-- Tableau visualisation
-
 [Back to main page](./index.md)
