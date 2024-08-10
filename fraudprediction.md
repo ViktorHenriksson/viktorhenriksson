@@ -6,7 +6,7 @@ For customer features it could be age.
 
 Transaction category: the most common in fraud.
 
-most common time, day, month for fraud. 
+most common time, day, month for fraud. MAKE DASHBOARD
 
 Most common age for fraud.
 
