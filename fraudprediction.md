@@ -4,16 +4,15 @@ Which transactional and customer features are the strongest predictors of fraud?
 Target variable is fraudindicator, i.e. if the transaction was a fraud or not. The amount of non-fraudulent transactions are 9491 and the fraudulent are 509, which is 5,1 % of all transactions. 
 The relevant variables that could predict fraud for transaction features could be amount, time of day, day of week, month, and transaction category. For customer features it could be age.
 
-HISTOGRAM AGE (should I filter by year?)
+[View Tableau Dashboard](https://public.tableau.com/views/sqlvisualisation/agecategoryamount?:language=sv-SE&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 The fraudulent transactions for each age varies wildly and it is difficult to see a trend. There are three noticable spikes for ages 22, 54, and 83. The ages least affected were 23 and 43.
 
-HISTOGRAM AMOUNT (should I filter by year?)
 For the amount in fraudulent transactions, the overwhelming transactions are below 1000. It has a steep drop to the 1000-2000 range, which just gets lower and lower. Only four fraudulent transaction were above 10 000.
 
-HISTOGRAM FRAUD PER CATEGORY (should I filter by year?)
 The fraudulent transactions are quite evenly distributed over the shopping categories. The only noticable difference is that fraud in the travel category is lower than the others. 
 
-DASHBOARD TIME DAY MONTH
+[View Tableau Dashboard](https://public.tableau.com/views/sqlvisualisation/amountfrauddash)
+
 For 2022, Thurdays seems to be the day with most fraudulent transactions, and for 2023 it is Thursdays and Saturdays. The least fraudulent days are Fridays and Sundays for 2023 and 2022 respectively. 
 For months, 2022 and 2023 are widely different. The most amount of fraudulent transactions happened in November for 2022 and in March for 2023.
 The hours also vary quite a lot, where there are two clear spikes for the different years. In 2022, the most fraud happened during 11:00-12:00, which in 2023 most fraud happened during 17:00.
