@@ -5,9 +5,9 @@ Target variable is fraudindicator, i.e. if the transaction was a fraud or not. T
 The relevant variables that could predict fraud for transaction features could be amount, time of day, day of week, month, and transaction category. For customer features it could be age.
 
 [View Tableau Dashboard](https://public.tableau.com/views/sqlvisualisation/agecategoryamount?:language=sv-SE&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-The fraudulent transactions for each age varies wildly and it is difficult to see a trend. There are three noticable spikes for ages 22, 54, and 83. The ages least affected were 23 and 43.
+The fraudulent transactions for each age varies wildly and it is difficult to see a trend. 2023 is a bit more evenly distributed than 2022. For 2022, there are noticable spikes for age 76, followed by 37. For 2023, age 54 is clearly higher than other ages. 
 
-For the amount in fraudulent transactions, the overwhelming transactions are below 1000. It has a steep drop to the 1000-2000 range, which just gets lower and lower. Only four fraudulent transaction were above 10 000.
+For the amount in fraudulent transactions, the overwhelming transactions are below 1000. It has a steep drop to the 1000-2000 range, which just gets lower and lower. Only four and two fraudulent transactions were above 10 000 for 2022 and 2023 respectively.
 
 The fraudulent transactions are quite evenly distributed over the shopping categories. The only noticable difference is that fraud in the travel category is lower than the others. 
 
@@ -86,3 +86,5 @@ fraud_table["hour"] = fraud_table["timestamp"].dt.hour
 
 
 ## Random forest algorithm
+### train-test split
+### cross-validation
