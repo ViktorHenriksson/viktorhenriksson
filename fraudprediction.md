@@ -20,6 +20,7 @@ For months, 2022 and 2023 are widely different. The most amount of fraudulent tr
 The hours also vary quite a lot, where there are two clear spikes for the different years. In 2022, the most fraud happened during 11:00-12:00, which in 2023 most fraud happened during 17:00.
 
 
+
 ## Feature engineering
 I start with selecting the relevant variables from the database:
 
