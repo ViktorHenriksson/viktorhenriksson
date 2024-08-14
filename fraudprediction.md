@@ -1,17 +1,19 @@
 Which transactional and customer features are the strongest predictors of fraud?
 
-## Exploratory Data Analysis
-Target variable is fraudindicator, i.e. if the transaction was a fraud or not. The amount of non-fraudulent transactions are 9491 and the fraudulent are 509, which is 5,1 % of all transactions. 
-The relevant variables that could predict fraud for transaction features could be amount, time of day, day of week, month, and transaction category. For customer features it could be age.
+## Dataset and variables
+Target variable is fraudindicator, i.e. if the transaction was a fraud or not. The relevant variables that could predict fraud for transaction features could be amount, time of day, day of week, month, and transaction category. For customer features it could be age.
 
-[View Tableau Dashboard](https://public.tableau.com/views/sqlvisualisation/agecategoryamount?:language=sv-SE&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+## Exploratory Data Analysis
+The amount of non-fraudulent transactions are 9491 and the fraudulent are 509, which is 5,1 % of all transactions. 
+
+[View Tableau Dashboard](https://public.tableau.com/views/sqlvisualisation/agecategoryamount?:language=sv-SE&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) <br>
 The fraudulent transactions for each age varies wildly and it is difficult to see a trend. 2023 is a bit more evenly distributed than 2022. For 2022, there are noticable spikes for age 76, followed by 37. For 2023, age 54 is clearly higher than other ages. 
 
-For the amount in fraudulent transactions, the overwhelming transactions are below 1000. It has a steep drop to the 1000-2000 range, which just gets lower and lower. Only four and two fraudulent transactions were above 10 000 for 2022 and 2023 respectively.
+For the amount in fraudulent transactions, the overwhelming transactions are below 1000 for both years. It has a steep drop to the 1000-2000 range, which just gets lower and lower. Only four and two fraudulent transactions were above 10 000 for 2022 and 2023 respectively.
 
-The fraudulent transactions are quite evenly distributed over the shopping categories. The only noticable difference is that fraud in the travel category is lower than the others. 
+The fraudulent transactions are differ for the different years over the categories. For 2022, retail and online are the highest one while the other three categories are quite even. In 2023, food is the most fraudulent category, followed by other and online, while retail and travel are quite even and lower. 
 
-[View Tableau Dashboard](https://public.tableau.com/views/sqlvisualisation/amountfrauddash)
+[View Tableau Dashboard](https://public.tableau.com/views/sqlvisualisation/amountfrauddash) <br>
 
 For 2022, Thurdays seems to be the day with most fraudulent transactions, and for 2023 it is Thursdays and Saturdays. The least fraudulent days are Fridays and Sundays for 2023 and 2022 respectively. 
 For months, 2022 and 2023 are widely different. The most amount of fraudulent transactions happened in November for 2022 and in March for 2023.
