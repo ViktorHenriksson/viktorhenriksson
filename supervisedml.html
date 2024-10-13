@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Prediction Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1, h2 {
+            color: #005f99;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+        }
+        h2 {
+            border-bottom: 2px solid #005f99;
+            padding-bottom: 10px;
+        }
+        p, li {
+            margin-bottom: 10px;
+        }
+        .content {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        a {
+            color: #005f99;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        .code {
+            background-color: #e7e7e7;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h1>Fraud Prediction Analysis</h1>
+
+        <h2>Introduction</h2>
+        <p>Fraud is constantly on the rise alongside technology. This makes fraud detection important. The big obstacle is to understand how to detect fraud. This project aims to understand which features have better ability to predict fraud. This is done with a credit card fraud dataset that gets analysed with supervised machine learning using the XGBoost algorithm.</p>
+
+        <h2>Dataset</h2>
+        <p>The dataset is taken from Kaggle (<a href="https://www.kaggle.com/datasets/kartik2112/fraud-detection">source</a>). It consists of 23 columns and 1,296,674 transactions. It has one binary column, <code>is_fraud</code>. With 0, the transaction is genuine and with 1, it is fraudulent. This will be the target variable. The dataset is highly imbalanced, as only 0.58% of all transactions are fraudulent. This is important to consider during the rest of the analysis.</p>
+
+        <p><strong>New features created:</strong></p>
+        <ul>
+            <li>Hour, month, and weekday are extracted from the timestamp.</li>
+            <li>Distance between merchant and user is calculated using their respective coordinates.</li>
+            <li>The percentage of fraudulent transactions for each merchant and zip code is created.</li>
+        </ul>
+
+        <h2>Insights from EDA with Visualisations</h2>
+        <h3>Dashboard Amount Category</h3>
+        <ul>
+            <li>Transaction amounts are very skewed, and fraudulent transactions only range from around $1 to $1,400 USD. This means that large outliers are not relevant for fraud.</li>
+            <li>Grocery shopping on location and shopping online are the most common categories of fraudulent transactions.</li>
+        </ul>
+
+        <h3>Dashboard Time Age</h3>
+        <ul>
+            <li>Most transactions are made during weekends and between 21:00-22:00 in the evening.</li>
+            <li>Age does not have a clear pattern regarding fraud, as it is very unevenly distributed.</li>
+        </ul>
+
+        <h2>Analysis and Results</h2>
+        <p>To understand the most important features, four measures were used:</p>
+        <ul>
+            <li><strong>Feature importance:</strong> The XGBoost model lists the features that most contributed to predictions.</li>
+            <li><strong>Permutation importance:</strong> Measures how important a feature is by evaluating the model’s performance without it.</li>
+            <li><strong>SHAP values:</strong> SHAP distributes the impact of each feature on the final prediction.</li>
+            <li><strong>Correlation matrix:</strong> This matrix shows how correlated a feature is to fraud.</li>
+        </ul>
+
+        <h3>Feature Importance and Permutation Importance Plots</h3>
+        <img src="permutation_feature_plot.png" alt="Feature and Permutation Importance">
+
+        <h3>Correlation with Fraud</h3>
+        <img src="correlation%20with%20fraud.png" alt="Correlation with Fraud">
+        
+        <p><strong>Key Insights:</strong></p>
+        <ul>
+            <li><strong>Amount, merchant fraud percentage, zip code fraud percentage, and category</strong> are most correlated with the <code>is_fraud</code> variable.</li>
+            <li><strong>Distance between user and merchant, weekday, and state</strong> are least correlated.</li>
+        </ul>
+
+        <h3>SHAP Values</h3>
+        <img src="shap_beeswarm.png" alt="SHAP values">
+        <p>This beeswarm plot shows how each transaction contributed to the prediction of fraud. The X-axis shows if the feature lowers or increases the likelihood of fraud. The color indicates if the feature values are high or low.</p>
+
+        <p>Key SHAP findings:</p>
+        <ul>
+            <li>Higher values of <strong>amount</strong> and <strong>hour</strong> seem to increase fraud likelihood.</li>
+            <li>Category, being a nominal variable, presents mixed results.</li>
+            <li>Low <strong>merchant fraud percentage</strong> reduces fraud likelihood, while higher <strong>zip fraud percentages</strong> increase it.</li>
+        </ul>
+
+        <h3>Further Investigation</h3>
+        <p><strong>Amount</strong> should be examined further since it had the highest predictive power, but the relationship is fragmented. All fraudulent transactions were within $0-2000, while genuine transactions had higher outliers.</p>
+        <p><strong>Age</strong> was mildly important based on correlation and feature importance, but less significant with SHAP.</p>
+
+        <p><strong>Previous fraud percentages</strong> for zip codes and merchants are moderately correlated with fraud but are less important for machine learning models.</p>
+
+        <h2>Conclusion</h2>
+        <p>The features <strong>amount</strong>, <strong>category</strong>, and <strong>hour</strong> are most important for predicting fraud, with <strong>previous fraud</strong> and <strong>age</strong> as complementary features. The variables <strong>amount</strong> and <strong>category</strong> should be explored further to understand their interaction and predictive power.</p>
+
+    </div>
+
+</body>
+</html>
