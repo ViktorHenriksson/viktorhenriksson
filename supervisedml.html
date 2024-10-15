@@ -91,17 +91,12 @@
         <li><strong>Feature importance:</strong> The XGBoost model can list the features that most contributed to the predictions.</li>
         <li><strong>Permutation importance:</strong> This explores how important the feature is by measuring the performance of the model with the feature removed. The steeper drop in performance, the more important the feature is.</li>
         <li><strong>SHAP values:</strong> SHAP measures feature importance differently by distributing the impact of each feature evenly on the final result.</li>
-        <li><strong>Correlation matrix:</strong> This matrix showcases how correlated the feature is to the fraud.</li>
     </ul>
-
-    <p><img src="correlation%20with%20fraud.png" alt="Correlation with fraud"></p>
-
-    <p>Amount, merchant fraud percentage, zip code fraud percentage, and category are the most correlated with the <code>is_fraud</code> variable, while distance between user and merchant, weekday, and state are the least correlated.</p>
 
     <p><img src="permutation_feature_plot.png" alt="Feature and permutation importance"></p>
 
-    <p>In general, amount, category, and hour have the most effect on predicting fraud. Amount seems to have higher predicting power according to permutation importance, correlation matrix, and SHAP values.</p>
-    <p>Category is the most important feature according to the feature importance, with amount being a close second. Category and hour switch between being on the second and third places as important features. The exception is the correlation analysis, where previous fraud in the form of percentage of fraud for merchants and zip codes were more important than hour. Age has medium importance in all measures.</p>
+    <p>In general, amount, category, and hour have the most effect on predicting fraud. Amount seems to have higher predicting power according to permutation importance and SHAP values.</p>
+    <p>Category is the most important feature according to the feature importance, with amount being a close second. Category and hour switch between being on the second and third places as important features. Age has medium importance in all measures.</p>
 
     <p><img src="shap_beeswarm.png" alt="SHAP values"></p>
 
