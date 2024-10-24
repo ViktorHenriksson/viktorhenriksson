@@ -1,51 +1,14 @@
 ### Introduction
 Fraud is a problem that is rising and has gotten attention on a national and international level. My thesis intended to find out how fraud is addressed in policy documents in different sectors in Sweden. It used Topic Modelling using Python.
+
+The different sectors are the following: governmental, civil, banking, and private.
+
 The full thesis can be found [here](https://lup.lub.lu.se/student-papers/search/publication/9165283).
 ### Pre-processing
 The corpus consisted of 102 documents of different lengths. The first step was to read the documents using the pyPDF2 module and then pre-process the documents. The documents were tokenised, lemmatised, and stop words were removed. 
 ### Topic modelling 
 
-![coherence values for different numbers of topics](coherence_values.png) <br>
-
-To find out the optimal number of topics, I used a function that compared coherence values for different numbers of topics. This was used with a qualitative analysis of keywords to find which number of topics generated the most useful information.
-
-```
-def compute_coherence_values(dictionary, corpus, texts, limit, start, step):
-    """This function calculates and returns lists of coherence and perplexity values for different numbers of topics"""
-
-    # Lists to store values are intialised
-    coherence_values = []
-    perplexity_values = []
-    model_list = []
-    top_words_list = []  
-    topic_labels_list = [] 
-    
-    # Now the model are created, iterating through different numbers of topics. Random state is used to make the result replicable.
-    for num_topics in range(start, limit, step):
-        lda_model = models.LdaModel(corpus=corpus, id2word=dictionary, num_topics=num_topics, passes=6, random_state=8366) 
-        # The model is added to the list
-        model_list.append(lda_model)
-        
-        # Computing coherence score and adding to list
-        coherencemodel = CoherenceModel(model=lda_model, texts=texts, dictionary=dictionary, coherence='c_v')
-        coherence_values.append(coherencemodel.get_coherence())
-
-        # Perplexity is computed and added to the list
-        perplexity = lda_model.log_perplexity(corpus)
-        perplexity_values.append(perplexity)
-        
-        # Adding top words for each model for qualitative assessment
-        top_words = lda_model.print_topics(num_words=5) 
-        top_words_list.append(top_words)
-        
-        # Making labels for each topic
-        topic_labels = [f"Topic {i+1}" for i in range(num_topics)]
-        topic_labels_list.append(topic_labels)
-
-    return model_list, coherence_values, perplexity_values, top_words_list, topic_labels_list
-```
-The number of topics after the analysis was settled on 6. <br>
-
+The number of topics that I deemed suitable was 6. The following table shows each topic with the associated key words.
 
 | Topic 1                                | Topic 2                           | Topic 3                               |
 |----------------------------------------|-----------------------------------|---------------------------------------|
