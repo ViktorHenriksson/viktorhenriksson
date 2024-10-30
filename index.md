@@ -15,7 +15,7 @@ Skills showcased
 - Data import, cleaning, and transformation.
 . Writing and optimizing complex SQL queries, including joins, aggregations, CTE, window functions, and UNIONs.
 
-[Fraud prediction](./fraudprediction.md) <br>
+[Fraud prediction](./supervisedml.html) <br>
 Skills showcased
 - Feature engineering
 - Python programming, including use of Pandas, Numpy, and Seaborn
