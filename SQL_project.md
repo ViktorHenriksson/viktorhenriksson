@@ -1,6 +1,12 @@
 ## SQL queries in fraud database
-This project intends to explore the fraud database and find out which year and month were the most affected by scams and what the most severe fraudulent transactions looks like.
-The SQL code for creating the database can be found [here](https://github.com/ViktorHenriksson/viktorhenriksson/blob/5b5bd039482ba507088416e5f8e6b809438a25cb/creating_fraud_detection_db.sql).
+This project intends to explore the fraud database and find out which year and month were the most affected by scams and what the most severe fraudulent transactions looks like. 
+## Dataset 
+![Entity Relationship Diagram](erdver2.drawio.png)
+The data base is based on one from Aditya Goyal on [Kaggle](https://www.kaggle.com/datasets/goyaladi/fraud-detection-dataset/data). 
+It has been randomly populated using a modified Python script that was included in the Kaggle files. The [script](creating_and_populating_database) uses the Faker module to randomise names, places, addresses etc. It e
+
+
+
 
 ``` sql
 WITH transaction_total AS (
