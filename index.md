@@ -29,8 +29,3 @@ Skills showcased
 - Python programming, including use of Pandas, Numpy, and Seaborn
 - Unsupervised machine learning model building
 - Visualisations using Tableau
-
-## Dataset 
-![Entity Relationship Diagram](erdver2.drawio.png)
-The dataset used for all my projects comes from Aditya Goyal on [Kaggle](https://www.kaggle.com/datasets/goyaladi/fraud-detection-dataset/data). 
-It has been randomly populated using a modified Python script that was included in the Kaggle files. The [script](creating_random_database) uses the Faker module to randomise names, places, addresses etc.
