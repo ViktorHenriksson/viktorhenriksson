@@ -23,9 +23,3 @@ Skills showcased
 - Hyperparameter tuning and model optimization.
 - Statistical analysis
 - Visualisations using Tableau
-  
-[Anomaly detection in Fraud prevention set]
-Skills showcased
-- Python programming, including use of Pandas, Numpy, and Seaborn
-- Unsupervised machine learning model building
-- Visualisations using Tableau
