@@ -1,3 +1,4 @@
+``` sql
 -- Query for summarising the data
 
 WITH transaction_total AS (
