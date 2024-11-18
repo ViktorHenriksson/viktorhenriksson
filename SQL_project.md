@@ -1,5 +1,5 @@
 ## SQL queries in fraud database
-This project intends to explore the fraud database and find out which year and month were the most affected by scams and what the most severe fraudulent transactions looks like. The queries used can be found [here](query.sql).
+This project intends to explore the fraud database and find out which year and month were the most affected by scams and what the most severe fraudulent transactions looks like. The queries used can be found [here](query.md).
 
 ## Dataset 
 ![Entity Relationship Diagram](erdver2.drawio.png)
