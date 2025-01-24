@@ -10,19 +10,7 @@ I created new features:
 
 - Hour, month, and weekday are extracted from the timestamp.
 - Distance between merchant and user are calculated using their respective coordinates.
-- The percentage of fraudulent transactions for each merchant and zip code is created.
-
-## Insights from EDA with Visualizations
-
-![Supervised Exploration - Category Amount](https://public.tableau.com/static/images/su/supervisedexploration/categoryamount/1.png)
-
-- Transaction amounts are very skewed, and fraudulent transactions only take on values from around 1 to 1400 USD. This means that there are large outliers, but these outliers are not relevant for fraud.
-- Grocery shopping on location and shopping online are the most common categories of fraudulent transactions.
-
-![Supervised Exploration - Age Time](https://public.tableau.com/static/images/su/supervisedexploration/agetime/1.png)
-
-- Most transactions are made during weekends and during 21:00-22:00 in the evening.
-- Age does not have a clear pattern when it comes to fraud, as it is very unevenly distributed.
+- The percentage of fraudulent transactions for each merchant and zip code.
 
 ## Analysis and Results
 To understand the most important features, I used four measures:
