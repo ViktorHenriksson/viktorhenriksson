@@ -1,3 +1,4 @@
+``` sql
 CREATE DATABASE fraud_detection;
 GO
 
@@ -72,9 +73,11 @@ CREATE TABLE transaction_metadata(
     FOREIGN KEY (TransactionID) REFERENCES transaction_records(TransactionID),
     FOREIGN KEY (MerchantID) REFERENCES merchant_data(MerchantID)
 );
+```
 
 Python code for randomly populating the database.
 
+``` python 
 import pandas as pd
 import numpy as np
 from faker import Faker
@@ -162,3 +165,4 @@ suspicious_activity.to_sql('suspicious_activity', engine, if_exists='replace', i
 anomaly_scores.to_sql('anomaly_scores', engine, if_exists='replace', index=False)
 merchant_data.to_sql('merchant_data', engine, if_exists='replace', index=False)
 transaction_category_labels.to_sql('transaction_category_labels', engine, if_exists='replace', index=False)
+```
