@@ -1,3 +1,4 @@
+SQL queries for creating the database.
 ``` sql
 CREATE DATABASE fraud_detection;
 GO
